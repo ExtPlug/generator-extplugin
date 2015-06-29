@@ -1,0 +1,14 @@
+{ "name": "generator-extplugin"
+, "version": "0.0.0"
+, "description": "Yeoman generator for ExtPlug plugins."
+, "license": "MIT"
+, "repository": "ExtPlug/generator-extplugin"
+, "keywords": [ "yeoman-generator" ]
+, "dependencies":
+  { "yeoman-generator": "^0.17.7"
+  , "object-assign": "2.x" }
+, "devDependencies":
+  { "babel": "^5.5.8" }
+, "scripts":
+  { "babel": "./node_modules/.bin/babel --out-dir generators --ignore src/*/templates src"
+  , "watch": "./node_modules/.bin/babel --watch --out-dir generators --ignore src/*/templates src" } }
