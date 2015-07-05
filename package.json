@@ -11,4 +11,5 @@
   { "babel": "^5.5.8" }
 , "scripts":
   { "babel": "./node_modules/.bin/babel --out-dir generators --ignore src/*/templates src"
+  , "prepublish": "npm run-script babel"
   , "watch": "./node_modules/.bin/babel --watch --out-dir generators --ignore src/*/templates src" } }
