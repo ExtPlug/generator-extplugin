@@ -29,4 +29,4 @@ The built plugin will be stored at `build/<%= name %>.js`.
 
 ## License
 
-[MIT](./LICENSE)
+[<%= license %>](./LICENSE)
