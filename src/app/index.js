@@ -55,7 +55,7 @@ module.exports = Base.extend({
                , requirejs: '^2.1.18' }
     if (this.data.babel) {
       deps['gulp-babel'] = '^5.1.0'
-      deps['deps'] = '^1.2.0'
+      deps['del'] = '^1.2.0'
       deps['run-sequence'] = '^1.1.1'
     }
     // keys sorted alphabetically
