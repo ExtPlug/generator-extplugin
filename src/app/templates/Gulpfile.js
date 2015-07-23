@@ -52,6 +52,6 @@ gulp.task('rjs', function (done) {
   })
 })
 
-gulp.task('build', <% if (babel) { %>function () {
-  return runseq('clean-lib', 'babel', 'rjs')
+gulp.task('build', <% if (babel) { %>function (cb) {
+  runseq('clean-lib', 'babel', 'rjs', cb)
 }<% } else { %>[ 'rjs' ]<% } %>)
