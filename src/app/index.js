@@ -1,4 +1,5 @@
 const { Base } = require('yeoman-generator')
+const sortKeys = require('sort-keys')
 
 module.exports = Base.extend({
 
@@ -59,13 +60,7 @@ module.exports = Base.extend({
       deps['run-sequence'] = '^1.1.1'
     }
     // keys sorted alphabetically
-    pack.devDependencies = Object.keys(deps)
-      .map(key => [ key, deps[key] ])
-      .sort((a, b) => a[0] > b[0] ? 1 : a[0] < b[0] ? -1 : 0)
-      .reduce((devDeps, [ dep, version ]) => {
-        devDeps[dep] = version
-        return devDeps
-      }, {})
+    pack.devDependencies = sortKeys(deps)
     pack.scripts = {
       build: 'gulp build'
     }

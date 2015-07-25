@@ -6,7 +6,8 @@
 , "keywords": [ "yeoman-generator" ]
 , "dependencies":
   { "yeoman-generator": "^0.17.7"
-  , "object-assign": "2.x" }
+  , "object-assign": "2.x"
+  , "sort-keys": "^1.1.1" }
 , "devDependencies":
   { "babel": "^5.5.8" }
 , "scripts":
