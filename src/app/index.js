@@ -34,7 +34,12 @@ module.exports = Base.extend({
   },
 
   writing() {
-    this.template('Gulpfile.js', 'Gulpfile.js', this.data)
+    if (this.data.babel) {
+      this.template('gulpfile.babel.js', 'gulpfile.babel.js', this.data)
+    }
+    else {
+      this.template('gulpfile.js', 'gulpfile.js', this.data)
+    }
     this.template('README.md', 'README.md', this.data)
 
     this.write('package.json', JSON.stringify(this._package(), null, 2))
@@ -56,6 +61,7 @@ module.exports = Base.extend({
                , requirejs: '^2.1.18' }
     if (this.data.babel) {
       deps['gulp-babel'] = '^5.1.0'
+      deps['babel-core'] = '^5.8.23'
       deps['del'] = '^1.2.0'
       deps['run-sequence'] = '^1.1.1'
     }
