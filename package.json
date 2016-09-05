@@ -1,16 +1,27 @@
-{ "name": "generator-extplugin"
-, "version": "0.1.2"
-, "description": "Yeoman generator for ExtPlug plugins."
-, "license": "MIT"
-, "repository": "ExtPlug/generator-extplugin"
-, "keywords": [ "yeoman-generator" ]
-, "dependencies":
-  { "yeoman-generator": "^0.17.7"
-  , "object-assign": "2.x"
-  , "sort-keys": "^1.1.1" }
-, "devDependencies":
-  { "babel": "^5.5.8" }
-, "scripts":
-  { "babel": "babel --out-dir generators --ignore src/*/templates src"
-  , "prepublish": "npm run-script babel"
-  , "watch": "babel --watch --out-dir generators --ignore src/*/templates src" } }
+{
+  "name": "generator-extplugin",
+  "version": "0.1.2",
+  "description": "Yeoman generator for ExtPlug plugins.",
+  "license": "MIT",
+  "repository": "extplug/generator-extplugin",
+  "main": "generators/app/index.js",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "object-assign": "^4.1.0",
+    "sort-keys": "^1.1.2",
+    "yeoman-generator": "^0.24.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-extplug": "^2.0.0"
+  },
+  "scripts": {
+    "dir": "mkdir -p generators/app/templates",
+    "copy": "npm run dir && cp -r src/app/templates/* generators/app/templates/",
+    "babel": "babel --copy-files src --out-dir generators --ignore src/*/templates",
+    "build": "npm run copy && npm run babel",
+    "prepublish": "npm run build"
+  }
+}

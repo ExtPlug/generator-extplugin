@@ -5,28 +5,32 @@
 
 ## Installation
 
-If you do not have ExtPlug yet, get it [here](https://extplug.github.io).
+If you do not have ExtPlug yet, get it [here][ExtPlug].
 
 You can install this plugin by going to your ExtPlug settings menu, pressing
 "Install Plugin", and entering this Plugin URL:
 
 ```
-[YOUR HOST URL HERE];<%= namespace %>/<%= name %>/main
+[YOUR HOST URL HERE]
 ```
 
 ## Building
 
 **Note: this section is intended for developers only.**
 
-This plugin uses NPM for dependency management and `gulp` for building.
+This plugin uses the [ExtPlug CLI]. To build, run:
 
 ```
 npm install
-gulp build
+npm run build
 ```
 
-The built plugin will be stored at `build/<%= name %>.js`.
+The built plugin will be saved at `build/<%= name %>.js`.
 
 ## License
 
-[<%= license %>](./LICENSE)
+[<%= license %>]
+
+[ExtPlug]: https://extplug.github.io/
+[ExtPlug CLI]: https://github.com/extplug/extplug-cli#readme
+[<%= license %>]: ./LICENSE

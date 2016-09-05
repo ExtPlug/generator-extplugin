@@ -10,7 +10,7 @@ const <%= classname %> = Plugin.extend({
 
   disable() {
     // code to undo what you did in enable()
-  }
+  },
 });
 
 export default <%= classname %>;

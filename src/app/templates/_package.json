@@ -1,0 +1,17 @@
+{
+  "name": "extplug-<%= name %>",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "<%= description %>",
+  "keywords": [
+    "extplug-plugin"
+  ],
+  "dependencies": {
+  },
+  "scripts": {
+    "build": "extplug bundle src/main.js build/<%= name %>.js"
+  },
+  "devDependencies": {
+    "extplug-cli": "^1.0.0"
+  }
+}
