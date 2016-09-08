@@ -14,14 +14,13 @@
     "yeoman-generator": "^0.24.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.14.0",
-    "babel-preset-extplug": "^2.0.0"
+    "babel-preset-extplug": "^2.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-if": "^2.0.1"
   },
   "scripts": {
-    "dir": "mkdir -p generators/app/templates generators/readme/templates",
-    "copy": "npm run dir && cp -r src/app/templates/* generators/app/templates/ && cp -r src/readme/templates/* generators/readme/templates/",
-    "babel": "babel --copy-files src --out-dir generators --ignore src/*/templates",
-    "build": "npm run copy && npm run babel",
+    "build": "gulp",
     "prepublish": "npm run build"
   }
 }
