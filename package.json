@@ -19,8 +19,8 @@
     "babel-preset-extplug": "^2.0.0"
   },
   "scripts": {
-    "dir": "mkdir -p generators/app/templates",
-    "copy": "npm run dir && cp -r src/app/templates/* generators/app/templates/",
+    "dir": "mkdir -p generators/app/templates generators/readme/templates",
+    "copy": "npm run dir && cp -r src/app/templates/* generators/app/templates/ && cp -r src/readme/templates/* generators/readme/templates/",
     "babel": "babel --copy-files src --out-dir generators --ignore src/*/templates",
     "build": "npm run copy && npm run babel",
     "prepublish": "npm run build"

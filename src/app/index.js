@@ -32,11 +32,6 @@ module.exports = Base.extend({
 
   writing() {
     this.fs.copyTpl(
-      this.templatePath('README.md'),
-      this.destinationPath('README.md'),
-      this.data
-    );
-    this.fs.copyTpl(
       this.templatePath('src/main.js'),
       this.destinationPath('src/main.js'),
       this.data
@@ -46,6 +41,12 @@ module.exports = Base.extend({
       this.destinationPath('package.json'),
       this.data
     );
+
+    this.composeWith('extplugin:readme', {
+      options: this.data,
+    }, {
+      local: require.resolve('../readme'),
+    });
   },
 
   install() {
