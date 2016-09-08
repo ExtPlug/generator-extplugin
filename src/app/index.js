@@ -1,8 +1,12 @@
 import { Base } from 'yeoman-generator';
-import sortKeys from 'sort-keys';
 import { camelize, slugify, titleize } from 'underscore.string';
 
 module.exports = Base.extend({
+  initializing() {
+    this.composeWith('license', {}, {
+      local: require.resolve('generator-license'),
+    });
+  },
   prompting() {
     return this.prompt([
       {
@@ -16,25 +20,16 @@ module.exports = Base.extend({
         name: 'description',
         message: 'One-line plugin description',
       },
-      {
-        type: 'input',
-        name: 'license',
-        message: 'License',
-        default: 'MIT',
-      },
     ]).then(answers => {
       this.data = answers;
       this.data.classname = camelize(this.data.pluginname);
       this.data.name = slugify(this.data.pluginname);
+
+      this.log('The following questions relate to which license you want to use.');
     });
   },
 
   writing() {
-    this.fs.copyTpl(
-      this.templatePath('README.md'),
-      this.destinationPath('README.md'),
-      this.data
-    );
     this.fs.copyTpl(
       this.templatePath('src/main.js'),
       this.destinationPath('src/main.js'),
@@ -45,6 +40,12 @@ module.exports = Base.extend({
       this.destinationPath('package.json'),
       this.data
     );
+
+    this.composeWith('extplugin:readme', {
+      options: this.data,
+    }, {
+      local: require.resolve('../readme'),
+    });
   },
 
   install() {
