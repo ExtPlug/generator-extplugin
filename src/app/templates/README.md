@@ -29,8 +29,8 @@ The built plugin will be saved at `build/<%= name %>.js`.
 
 ## License
 
-[<%= license %>]
+See [LICENSE]
 
 [ExtPlug]: https://extplug.github.io/
 [ExtPlug CLI]: https://github.com/extplug/extplug-cli#readme
-[<%= license %>]: ./LICENSE
+[LICENSE]: ./LICENSE

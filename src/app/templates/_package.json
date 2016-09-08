@@ -1,7 +1,7 @@
 {
   "name": "extplug-<%= name %>",
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "",
   "description": "<%= description %>",
   "keywords": [
     "extplug-plugin"
