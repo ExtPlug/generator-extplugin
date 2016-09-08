@@ -1,5 +1,4 @@
 import { Base } from 'yeoman-generator';
-import sortKeys from 'sort-keys';
 import { camelize, slugify, titleize } from 'underscore.string';
 
 module.exports = Base.extend({
