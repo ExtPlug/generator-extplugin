@@ -10,7 +10,8 @@
   "dependencies": {
   },
   "scripts": {
-    "build": "extplug bundle src/main.js build/<%= name %>.js"
+    "build": "extplug bundle src/main.js build/<%= name %>.js",
+    "prepublish": "npm run build -- --minify"
   },
   "devDependencies": {
     "extplug-cli": "^1.0.0"
