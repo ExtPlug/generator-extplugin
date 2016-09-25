@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "",
   "description": "<%= description %>",
+  "browser": "build/<%= name %>.js",
   "keywords": [
     "extplug-plugin"
   ],
