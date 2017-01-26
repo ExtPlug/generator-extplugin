@@ -1,6 +1,8 @@
 ExtPlug Plugin Generator
 ========================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/extplug/generator-extplugin.svg)](https://greenkeeper.io/)
+
 Yeoman Generator for ExtPlug plugin skeletons.
 
 ## Usage
