@@ -1,8 +1,10 @@
-import { Base } from 'yeoman-generator';
+import Generator from 'yeoman-generator';
 import { camelize, slugify, titleize } from 'underscore.string';
 
-module.exports = Base.extend({
-  initializing() {
+class ReadmeGenerator extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+
     this.option('pluginname', {
       type: String,
       required: true,
@@ -22,7 +24,7 @@ module.exports = Base.extend({
       required: false,
       defaults: 'LICENSE'
     });
-  },
+  }
 
   writing() {
     const pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
@@ -34,9 +36,11 @@ module.exports = Base.extend({
       this.destinationPath('README.md'),
       this.options
     );
-  },
+  }
 
   install() {
     this.npmInstall();
-  },
-});
+  }
+}
+
+module.exports = ReadmeGenerator

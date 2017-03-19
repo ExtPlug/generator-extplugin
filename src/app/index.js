@@ -1,12 +1,13 @@
-import { Base } from 'yeoman-generator';
+import Generator from 'yeoman-generator';
 import { camelize, slugify, titleize } from 'underscore.string';
 
-module.exports = Base.extend({
-  initializing() {
-    this.composeWith('license', {}, {
-      local: require.resolve('generator-license'),
-    });
-  },
+class PluginGenerator extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.composeWith(require.resolve('generator-license'), {});
+  }
+
   prompting() {
     return this.prompt([
       {
@@ -27,7 +28,7 @@ module.exports = Base.extend({
 
       this.log('The following questions relate to which license you want to use.');
     });
-  },
+  }
 
   writing() {
     this.fs.copyTpl(
@@ -41,14 +42,12 @@ module.exports = Base.extend({
       this.data
     );
 
-    this.composeWith('extplugin:readme', {
-      options: this.data,
-    }, {
-      local: require.resolve('../readme'),
-    });
-  },
+    this.composeWith(require.resolve('../readme'), this.data);
+  }
 
   install() {
     this.npmInstall();
-  },
-});
+  }
+}
+
+module.exports = PluginGenerator
