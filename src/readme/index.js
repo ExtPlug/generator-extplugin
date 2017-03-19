@@ -1,5 +1,4 @@
 import Generator from 'yeoman-generator';
-import { camelize, slugify, titleize } from 'underscore.string';
 
 class ReadmeGenerator extends Generator {
   constructor(args, opts) {

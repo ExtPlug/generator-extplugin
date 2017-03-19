@@ -1,11 +1,15 @@
 import Generator from 'yeoman-generator';
-import { camelize, slugify, titleize } from 'underscore.string';
+import camelCase from 'camel-case';
+import titleCase from 'title-case';
+import slugify from 'slugify';
 
 class PluginGenerator extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.composeWith(require.resolve('generator-license'), {});
+    this.composeWith(require.resolve('generator-license'), {
+      defaultLicense: 'MIT'
+    });
   }
 
   prompting() {
@@ -14,7 +18,7 @@ class PluginGenerator extends Generator {
         type: 'input',
         name: 'pluginname',
         message: 'Plugin Name',
-        default: titleize(this.appname),
+        default: titleCase(this.appname),
       },
       {
         type: 'input',
@@ -23,7 +27,7 @@ class PluginGenerator extends Generator {
       },
     ]).then(answers => {
       this.data = answers;
-      this.data.classname = camelize(this.data.pluginname);
+      this.data.classname = camelCase(this.data.pluginname);
       this.data.name = slugify(this.data.pluginname);
 
       this.log('The following questions relate to which license you want to use.');
