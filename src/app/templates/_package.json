@@ -4,14 +4,16 @@
   "license": "",
   "description": "<%= description %>",
   "browser": "build/<%= name %>.js",
+  "main": "build/<%= name %>.js",
   "keywords": [
-    "extplug-plugin"
+    "extplug-plugin",
+    "plug.dj"
   ],
-  "dependencies": {
-  },
   "scripts": {
     "build": "extplug bundle src/main.js build/<%= name %>.js",
     "prepublish": "npm run build -- --minify"
+  },
+  "dependencies": {
   },
   "devDependencies": {
     "extplug-cli": "^1.0.0"
